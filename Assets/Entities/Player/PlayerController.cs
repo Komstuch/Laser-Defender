@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 15f;
+    [SerializeField] float firingRate = 0.2f;
+
+    Coroutine firingCoroutine;
 
     private float xMin, xMax, yMin, yMax;
-
-	public float firingRate = 0.2f;
 	public float health = 300f;
 	public AudioClip fireSound;
 	
@@ -19,17 +20,28 @@ public class PlayerController : MonoBehaviour {
         SetMoveboundaries();
 	}
 	
-	void Update () {
-	
-		if(Input.GetButtonDown("Fire1")){
-			InvokeRepeating("Fire", 0.000001f, firingRate);
-		}
-		if(Input.GetButtonUp("Fire1")){
-			CancelInvoke("Fire");
-		}
+	void Update ()
+    {
+        HandleFire();
+        Move();
+    }
 
-        Move();		
-	}
+    private void HandleFire() {
+        if (Input.GetButtonDown("Fire1")) {
+            firingCoroutine = StartCoroutine(FireContinously());
+        }
+        if (Input.GetButtonUp("Fire1")){
+            StopCoroutine(firingCoroutine);
+        }
+    }
+
+    IEnumerator FireContinously()
+    {
+        while (true){
+            Fire();
+            yield return new WaitForSeconds(firingRate);
+        }
+    }
 
     private void Fire()
     {
