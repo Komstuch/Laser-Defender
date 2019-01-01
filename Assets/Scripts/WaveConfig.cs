@@ -19,7 +19,7 @@ public class WaveConfig : ScriptableObject {
     public float GetMoveSpeed() { return moveSpeed; }
     public int GetNumberOfEnemies() { return numberOfEnemies; }
 
-    public List<Transform> GetWypoints() {
+    public List<Transform> GetWaypoints() {
         var WaveWaypoints = new List<Transform>();
         foreach (Transform child in pathPrefab.transform)
         {
