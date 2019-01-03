@@ -5,11 +5,9 @@ using UnityEngine;
 public class EnemyPathing : MonoBehaviour {
 
     WaveConfig waveConfig;
-    EnemyBehaviour enemyBehaviour;
-
-    int waypointIndex = 0;
     List<Transform> waypoints;
-
+    int waypointIndex = 0;
+    
     private void Start()
     {
         waypoints = waveConfig.GetWaypoints();
