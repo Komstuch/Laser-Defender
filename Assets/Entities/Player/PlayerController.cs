@@ -58,13 +58,12 @@ public class PlayerController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         DamageDealer projectile = collider.gameObject.GetComponent<DamageDealer>();
+        if (!projectile) { return; }
         ProcessHit(projectile);
     }
 
     private void ProcessHit(DamageDealer projectile)
     {
-        if (projectile)
-        {
             Debug.Log("Player Collided with the missile");
             health -= projectile.GetDamage();
             projectile.Hit();
@@ -73,7 +72,6 @@ public class PlayerController : MonoBehaviour {
                 Destroy(gameObject);
                 //Die();
             }
-        }
     }
 
     private void Die(){
