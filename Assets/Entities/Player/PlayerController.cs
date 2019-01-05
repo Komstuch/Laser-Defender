@@ -4,17 +4,20 @@ using System;
 
 public class PlayerController : MonoBehaviour {
 
+    [Header("Player")]
 	[SerializeField] float moveSpeed = 15.0f;
     [SerializeField] float padding = 0.5f;
+    [SerializeField] int health = 200;
+
+    [Header("Projectile")]
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 15f;
     [SerializeField] float firingRate = 0.2f;
+    [SerializeField] AudioClip fireSound;
 
     Coroutine firingCoroutine;
 
     private float xMin, xMax, yMin, yMax;
-	public float health = 300f;
-	public AudioClip fireSound;
 	
 	void Start(){
         SetMoveboundaries();
@@ -52,23 +55,31 @@ public class PlayerController : MonoBehaviour {
         AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, 0.3f);
     }
 
-    void OnTriggerEnter2D(Collider2D collider){
-		Projectile missile = collider.gameObject.GetComponent<Projectile>();
-		if(missile){
-			Debug.Log ("Player Collided with the missile");
-			health -= missile.getDamage();
-			missile.Hit();
-			if(health <=0 ){
-				Die();
-			}		
-		}
-	}
-	
-	void Die(){
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        DamageDealer projectile = collider.gameObject.GetComponent<DamageDealer>();
+        ProcessHit(projectile);
+    }
+
+    private void ProcessHit(DamageDealer projectile)
+    {
+        if (projectile)
+        {
+            Debug.Log("Player Collided with the missile");
+            health -= projectile.GetDamage();
+            projectile.Hit();
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                //Die();
+            }
+        }
+    }
+
+    private void Die(){
 		LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 		man.LoadLevel("Win Screen");
-		Destroy (gameObject);
-		
+		Destroy (gameObject);		
 	}
 
     private void Move()

@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour {
 
     private void Fire()
     {
-        GameObject enemyProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        GameObject enemyProjectile = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, 180f));
         enemyProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
     }
 
