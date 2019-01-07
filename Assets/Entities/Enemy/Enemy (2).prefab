@@ -107,16 +107,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  projectile: {fileID: 137750, guid: c0e595189d1297c44888bd24a05cb959, type: 3}
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
-  projectile: {fileID: 137750, guid: 45e85027facb8784ea25821fbe7ab0e0, type: 3}
   projectileSpeed: 10
   explosionParticles: {fileID: 2271188755247340579, guid: a4991431c78c7d14581c07c15f261f7d,
     type: 3}
   durationOfExplosion: 1
   fireSound: {fileID: 8300000, guid: 47510a2bf44b9d442ba2bd59b3c847d2, type: 3}
   deathSound: {fileID: 8300000, guid: 659736ebed98088469a25e18ac4940b2, type: 3}
+  fireSoundVolume: 0.3
+  deathSoundVolume: 0.15
 --- !u!60 &60195647636071000
 PolygonCollider2D:
   m_ObjectHideFlags: 0

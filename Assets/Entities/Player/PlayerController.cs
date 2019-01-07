@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -79,8 +80,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Die(){
-        //LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        //man.LoadLevel("Win Screen");
+        LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        man.LoadLevel("Win Screen");
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         Destroy (gameObject);		
 	}
