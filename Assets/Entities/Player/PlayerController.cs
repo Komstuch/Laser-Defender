@@ -13,7 +13,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 15f;
     [SerializeField] float firingRate = 0.2f;
+
+    [Header("Audio Effects")]
     [SerializeField] AudioClip fireSound;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] [Range(0, 1)] float fireSoundVolume = 0.3f;
+    [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.15f;
 
     Coroutine firingCoroutine;
 
@@ -52,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 
         GameObject laserBeam = Instantiate(projectile, transform.position + offset, Quaternion.identity) as GameObject;
         laserBeam.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, projectileSpeed, 0f);
-        AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, 0.3f);
+        AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, fireSoundVolume);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -69,15 +74,15 @@ public class PlayerController : MonoBehaviour {
             projectile.Hit();
             if (health <= 0)
             {
-                Destroy(gameObject);
-                //Die();
+                Die();
             }
     }
 
     private void Die(){
-		LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-		man.LoadLevel("Win Screen");
-		Destroy (gameObject);		
+        //LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        //man.LoadLevel("Win Screen");
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        Destroy (gameObject);		
 	}
 
     private void Move()
