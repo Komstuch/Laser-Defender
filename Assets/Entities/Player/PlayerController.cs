@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour {
     [Header("Audio Effects")]
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip hitSound;
     [SerializeField] [Range(0, 1)] float fireSoundVolume = 0.3f;
     [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.15f;
+    [SerializeField] [Range(0, 1)] float hitSoundVolume = 0.1f;
 
     Coroutine firingCoroutine;
 
@@ -64,24 +66,31 @@ public class PlayerController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         DamageDealer projectile = collider.gameObject.GetComponent<DamageDealer>();
+        Enemy enemy = collider.gameObject.GetComponent<Enemy>();
         if (!projectile) { return; }
-        ProcessHit(projectile);
+        ProcessHit(projectile, enemy);
     }
 
-    private void ProcessHit(DamageDealer projectile)
+    private void ProcessHit(DamageDealer damageDealer, Enemy enemy)
     {
-            Debug.Log("Player Collided with the missile");
-            health -= projectile.GetDamage();
-            projectile.Hit();
-            if (health <= 0)
-            {
-                Die();
-            }
+        health -= damageDealer.GetDamage();
+        if (enemy){
+            enemy.Die();
+        }
+        else {
+            damageDealer.Hit();
+        }
+
+        if (health <= 0) {
+            Die();
+        } else {
+            AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
+        }
     }
 
     private void Die(){
         LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        man.LoadLevel("Win Screen");
+        man.LoadGameOver();
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         Destroy (gameObject);		
 	}

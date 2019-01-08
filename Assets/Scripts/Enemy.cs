@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        if (!projectile) { return; }
+        if (!damageDealer) { return; }
         ProcessHit(damageDealer);
     }
 
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    private void Die()
+    public void Die()
     {
         GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 114439405919901192}
   - component: {fileID: 114256641333488158}
   - component: {fileID: 60323507139217854}
+  - component: {fileID: 5601014432990514942}
   m_Layer: 9
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -107,18 +108,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  projectile: {fileID: 137750, guid: c0e595189d1297c44888bd24a05cb959, type: 3}
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
-  projectile: {fileID: 137750, guid: c0e595189d1297c44888bd24a05cb959, type: 3}
   projectileSpeed: 10
   explosionParticles: {fileID: 2271188755247340579, guid: a4991431c78c7d14581c07c15f261f7d,
     type: 3}
   durationOfExplosion: 1
   fireSound: {fileID: 8300000, guid: 47510a2bf44b9d442ba2bd59b3c847d2, type: 3}
   deathSound: {fileID: 8300000, guid: 659736ebed98088469a25e18ac4940b2, type: 3}
-  deathSoundVolume: 0.15
   fireSoundVolume: 0.3
+  deathSoundVolume: 0.15
 --- !u!60 &60323507139217854
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +157,16 @@ PolygonCollider2D:
       - {x: 0.41, y: -0.22999999}
       - {x: 0.41, y: 0.31}
       - {x: 0.28, y: 0.42}
+--- !u!114 &5601014432990514942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322297454917912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18d07b3ac6e4504ba77ddd6c1645ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
