@@ -103,9 +103,9 @@ MonoBehaviour:
   fireSound: {fileID: 8300000, guid: 44d51dd649e20ab43834225e9968ff6f, type: 3}
   deathSound: {fileID: 8300000, guid: cf36d3afa94dbf94da9e589ecd938450, type: 3}
   hitSound: {fileID: 8300000, guid: 1c6607da5b1703d4c85c0d111a528d3e, type: 3}
-  fireSoundVolume: 0.3
+  fireSoundVolume: 0.15
   deathSoundVolume: 0.15
-  hitSoundVolume: 0.15
+  hitSoundVolume: 0.1
 --- !u!60 &6059256
 PolygonCollider2D:
   m_ObjectHideFlags: 0

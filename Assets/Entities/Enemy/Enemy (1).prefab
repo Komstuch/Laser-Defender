@@ -118,8 +118,8 @@ MonoBehaviour:
   durationOfExplosion: 1
   fireSound: {fileID: 8300000, guid: 47510a2bf44b9d442ba2bd59b3c847d2, type: 3}
   deathSound: {fileID: 8300000, guid: 659736ebed98088469a25e18ac4940b2, type: 3}
-  fireSoundVolume: 0.3
-  deathSoundVolume: 0.15
+  fireSoundVolume: 2
+  deathSoundVolume: 0.1
 --- !u!60 &60323507139217854
 PolygonCollider2D:
   m_ObjectHideFlags: 0

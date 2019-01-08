@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour {
     [Header("Audio Effects")]
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
-    [SerializeField] [Range(0, 1)] float fireSoundVolume = 0.3f;
-    [SerializeField] [Range(0,1)] float deathSoundVolume = 0.15f;
+    [SerializeField] [Range(0,2)] float fireSoundVolume = 2f;
+    [SerializeField] [Range(0,1)] float deathSoundVolume = 0.1f;
 
     private void Start()
     {
