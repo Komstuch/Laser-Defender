@@ -26,7 +26,7 @@ public class EnemyBehaviour : MonoBehaviour {
 			missile.Hit();
 			if(health <=0 ){
 				Destroy (gameObject);
-				scoreKeeper.Score(scoreValue);
+				scoreKeeper.AddScore(scoreValue);
 				AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, 0.3f);
 			}		
 		}
