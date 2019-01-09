@@ -684,5 +684,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2123434448}
+    - target: {fileID: 7160166458145589823, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_Name
+      value: Score Label
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6710ef4f8e32994d8d26ee9b667576d, type: 3}
