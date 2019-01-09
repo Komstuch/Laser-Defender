@@ -679,6 +679,51 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7160166458820151594, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166458820151594, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317459, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317459, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 386
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317459, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317459, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317461, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317461, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166458598892989, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -272
+      objectReference: {fileID: 0}
     - target: {fileID: 7160166458598892988, guid: b6710ef4f8e32994d8d26ee9b667576d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -688,6 +733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Score Label
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166458145589822, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 7160166459241107205, guid: b6710ef4f8e32994d8d26ee9b667576d,
         type: 3}
@@ -708,6 +758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.84705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459168431943, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -352
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6710ef4f8e32994d8d26ee9b667576d, type: 3}

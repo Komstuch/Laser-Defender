@@ -38,9 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: EnemyProjectiles
     uniqueID: 4186456967
     locked: 0
@@ -55,4 +52,7 @@ TagManager:
     locked: 0
   - name: Explosions
     uniqueID: 510668121
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
