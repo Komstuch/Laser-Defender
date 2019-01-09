@@ -689,5 +689,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Score Label
       objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107205, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107205, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107205, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.65575695
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107205, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.84705883
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6710ef4f8e32994d8d26ee9b667576d, type: 3}

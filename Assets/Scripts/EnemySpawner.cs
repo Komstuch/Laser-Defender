@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour {
 
     [SerializeField] List<WaveConfig> waveConfigs;
     [SerializeField] int startingWave = 0;
-    [SerializeField] bool looping = false;
+    [SerializeField] bool looping = true;
 
 	IEnumerator Start () {
         do

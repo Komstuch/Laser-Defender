@@ -6,7 +6,7 @@ using System;
 public class PlayerController : MonoBehaviour {
 
     [Header("Player")]
-	[SerializeField] float moveSpeed = 15.0f;
+    [SerializeField] float moveSpeed = 15.0f;
     [SerializeField] float padding = 0.5f;
     [SerializeField] int health = 200;
 
@@ -24,14 +24,16 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] [Range(0, 1)] float hitSoundVolume = 0.1f;
 
     Coroutine firingCoroutine;
+    HealthDisplay healthDisplay;
 
     private float xMin, xMax, yMin, yMax;
-	
-	void Start(){
+
+    void Start() {
         SetMoveboundaries();
-	}
-	
-	void Update ()
+        healthDisplay = FindObjectOfType<HealthDisplay>();
+    }
+
+    void Update()
     {
         HandleFire();
         Move();
@@ -41,14 +43,14 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) {
             firingCoroutine = StartCoroutine(FireContinously());
         }
-        if (Input.GetButtonUp("Fire1")){
+        if (Input.GetButtonUp("Fire1")) {
             StopCoroutine(firingCoroutine);
         }
     }
 
     IEnumerator FireContinously()
     {
-        while (true){
+        while (true) {
             Fire();
             yield return new WaitForSeconds(firingRate);
         }
@@ -74,7 +76,8 @@ public class PlayerController : MonoBehaviour {
     private void ProcessHit(DamageDealer damageDealer, Enemy enemy)
     {
         health -= damageDealer.GetDamage();
-        if (enemy){
+        healthDisplay.SetHealth(health);
+        if (enemy) {
             enemy.Die();
         }
         else {
@@ -88,12 +91,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void Die(){
+    private void Die() {
         LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         man.LoadGameOver();
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-        Destroy (gameObject);		
-	}
+        Destroy(gameObject);
+    }
 
     private void Move()
     {
@@ -118,5 +121,10 @@ public class PlayerController : MonoBehaviour {
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, distance)).x - padding;
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, distance)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, distance)).y - padding;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }
