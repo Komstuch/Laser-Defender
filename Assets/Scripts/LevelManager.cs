@@ -4,9 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    [SerializeField] float delayInSeconds = 2f;
-
-
     public void LoadLevel(string name){
 		Debug.Log ("New Level load: " + name);
         SceneManager.LoadScene(name);
@@ -19,12 +16,25 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadGameOver()
     {
-        StartCoroutine(WaitAndLoad());
+        StartCoroutine(WaitAndLoad("Win Screen", 2));
 
     }
-    public IEnumerator WaitAndLoad()
+    public IEnumerator WaitAndLoad(string name, float delayInSeconds)
     {
         yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene("Win Screen");
+        SceneManager.LoadScene(name);
+    }
+
+    private void LoadStartSceene()
+    {
+        StartCoroutine(WaitAndLoad("Start Menu", 3));
+    }
+
+    private void Start()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            LoadStartSceene();
+        }
     }
 }
