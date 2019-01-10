@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     HealthDisplay healthDisplay;
 
     private float xMin, xMax, yMin, yMax;
+    private bool firingOn = false;
 
     void Start() {
         SetMoveboundaries();
@@ -40,10 +41,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleFire() {
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") & firingOn == false) {
+            firingOn = true;
             firingCoroutine = StartCoroutine(FireContinously());
         }
-        if (Input.GetButtonUp("Fire1")) {
+        if (Input.GetButtonUp("Fire1") & firingOn == true) {
+            firingOn = false;
             StopCoroutine(firingCoroutine);
         }
     }
