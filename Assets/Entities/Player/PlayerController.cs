@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 
     private float xMin, xMax, yMin, yMax;
     private bool firingOn = false;
+    private string pickupProperty;
+    private float pickupValue;
 
     void Start() {
         SetMoveboundaries();
@@ -72,8 +74,34 @@ public class PlayerController : MonoBehaviour {
     {
         DamageDealer projectile = collider.gameObject.GetComponent<DamageDealer>();
         Enemy enemy = collider.gameObject.GetComponent<Enemy>();
-        if (!projectile) { return; }
-        ProcessHit(projectile, enemy);
+        Pickup pickup = collider.gameObject.GetComponent<Pickup>();
+        if (projectile)
+        {
+            ProcessHit(projectile, enemy);
+        } else if (pickup)
+        {
+            ProcessPickup(pickup);
+        } else {
+            return;
+        }
+    }
+
+    private void ProcessPickup(Pickup pickup)
+    {
+        pickupProperty = pickup.GetPickupProperty();
+        pickupValue = pickup.GetPickupValue();
+
+        switch (pickupProperty) {
+            case "Health":
+                health += (int)pickupValue;
+                healthDisplay.SetHealth(health);
+                break;
+
+            default:
+                Debug.Log("Incorrect Pickup Property!");
+                break;      
+        }
+        pickup.Pick();
     }
 
     private void ProcessHit(DamageDealer damageDealer, Enemy enemy)

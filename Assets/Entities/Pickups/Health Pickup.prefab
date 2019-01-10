@@ -131,3 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127aeab54df6be848adafab04e9fcc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupProperty: Health
+  pickupValue: 50
+  pickupSound: {fileID: 8300000, guid: 92259622e9f1370439bbaf731f57d979, type: 3}
