@@ -12,4 +12,10 @@ public class DamageDealer : MonoBehaviour {
     {
         Destroy(gameObject);
     }
+
+    public void IncreaseDamage(float multiplier)
+    {
+        float newDamage = damage * multiplier;
+        damage = damage + (int)newDamage;
+    }
 }

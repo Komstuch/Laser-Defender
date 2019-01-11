@@ -34,6 +34,10 @@ public class ProcessPickup : MonoBehaviour
                 scoreKeeper.AddScore((int)pickupValue);
                 break;
 
+            case "Damage":
+                playerController.SetProjectileDamage(pickupValue);
+                break;
+
             default:
                 Debug.Log("Incorrect Pickup Property!");
                 break;
