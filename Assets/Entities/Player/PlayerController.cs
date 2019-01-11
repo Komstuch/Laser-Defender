@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.15f;
     [SerializeField] [Range(0, 1)] float hitSoundVolume = 0.1f;
 
+    [Header("Particla Effects")]
+    [SerializeField] GameObject deathEffect;
+    float deathEffectDuration;
+
     Coroutine firingCoroutine;
     HealthDisplay healthDisplay;
 
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         SetMoveboundaries();
         healthDisplay = FindObjectOfType<HealthDisplay>();
+        deathEffectDuration = deathEffect.GetComponent<ParticleSystem>().main.duration;
     }
 
     void Update()
@@ -126,7 +131,9 @@ public class PlayerController : MonoBehaviour {
         LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         man.LoadGameOver();
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        Destroy(effect, deathEffectDuration);
     }
 
     private void Move()
