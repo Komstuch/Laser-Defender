@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 
     Coroutine firingCoroutine;
     HealthDisplay healthDisplay;
+    ProcessPickup pickupProcessor;
 
     private float xMin, xMax, yMin, yMax;
     private bool firingOn = false;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour {
         SetMoveboundaries();
         healthDisplay = FindObjectOfType<HealthDisplay>();
         deathEffectDuration = deathEffect.GetComponent<ParticleSystem>().main.duration;
+        pickupProcessor = GetComponent<ProcessPickup>();
     }
 
     void Update()
@@ -85,28 +87,10 @@ public class PlayerController : MonoBehaviour {
             ProcessHit(projectile, enemy);
         } else if (pickup)
         {
-            ProcessPickup(pickup);
+            pickupProcessor.Process(pickup);
         } else {
             return;
         }
-    }
-
-    private void ProcessPickup(Pickup pickup)
-    {
-        pickupProperty = pickup.GetPickupProperty();
-        pickupValue = pickup.GetPickupValue();
-
-        switch (pickupProperty) {
-            case "Health":
-                health += (int)pickupValue;
-                healthDisplay.SetHealth(health);
-                break;
-
-            default:
-                Debug.Log("Incorrect Pickup Property!");
-                break;      
-        }
-        pickup.Pick();
     }
 
     private void ProcessHit(DamageDealer damageDealer, Enemy enemy)
@@ -161,8 +145,6 @@ public class PlayerController : MonoBehaviour {
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, distance)).y - padding;
     }
 
-    public int GetHealth()
-    {
-        return health;
-    }
+    public int GetHealth() { return health; }
+    public void AddHealth(int health) { this.health += health; }
 }
