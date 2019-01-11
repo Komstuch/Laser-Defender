@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour {
         if (isSpawned)
         {
             GameObject pickup = Instantiate(pickupList, transform.position, Quaternion.identity);
-            pickup.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -0.1f);
+            pickup.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -3f);
         }
     }
 }

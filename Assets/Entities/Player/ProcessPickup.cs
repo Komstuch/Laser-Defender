@@ -9,11 +9,13 @@ public class ProcessPickup : MonoBehaviour
 
     PlayerController playerController;
     HealthDisplay healthDisplay;
+    ScoreKeeper scoreKeeper;
 
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
         healthDisplay = FindObjectOfType<HealthDisplay>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
     public void Process(Pickup pickup)
@@ -26,6 +28,10 @@ public class ProcessPickup : MonoBehaviour
             case "Health":
                 playerController.AddHealth((int)pickupValue);
                 healthDisplay.SetHealth(playerController.GetHealth());
+                break;
+
+            case "Points":
+                scoreKeeper.AddScore((int)pickupValue);
                 break;
 
             default:
