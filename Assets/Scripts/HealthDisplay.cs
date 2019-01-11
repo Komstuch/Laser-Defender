@@ -17,6 +17,7 @@ public class HealthDisplay : MonoBehaviour
     
     public void SetHealth(int health)
     {
+        if (health < 0) health = 0; 
         healthText.text = health.ToString();
     }
 }

@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 10f;
 
+    [Header("Pick-Up's")]
+    [SerializeField] GameObject pickupList;
+    [SerializeField] [Range(0, 1)] float spawnPropability;
+
     [Header("VFX")]
     [SerializeField] GameObject explosionParticles;
     [SerializeField] float durationOfExplosion = 1f;
@@ -66,6 +70,7 @@ public class Enemy : MonoBehaviour {
         if (health <= 0)
         {
             Die();
+            SpawnPickup();
         }
     }
 
@@ -77,5 +82,16 @@ public class Enemy : MonoBehaviour {
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         Destroy(gameObject);
         Destroy(explosion, durationOfExplosion);
+    }
+
+    private void SpawnPickup()
+    {
+        bool isSpawned = (UnityEngine.Random.Range(0f, 1f) < spawnPropability);
+        Debug.Log("Spawn pickup?: " + isSpawned);
+        if (isSpawned)
+        {
+            GameObject pickup = Instantiate(pickupList, transform.position, Quaternion.identity);
+            pickup.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -0.1f);
+        }
     }
 }
