@@ -38,6 +38,10 @@ public class ProcessPickup : MonoBehaviour
                 playerController.SetProjectileDamage(pickupValue);
                 break;
 
+            case "ShotSpeed":
+                playerController.IncreaseFiringRate(pickupValue);
+                break;
+
             default:
                 Debug.Log("Incorrect Pickup Property!");
                 break;

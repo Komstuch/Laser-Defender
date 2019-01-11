@@ -146,10 +146,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     public int GetHealth() { return health; }
+
     public void AddHealth(int health) { this.health += health; }
     
     public void SetProjectileDamage(float multiplier)
     {
         projectile.GetComponent<DamageDealer>().IncreaseDamage(multiplier);
+    }
+
+    public void IncreaseFiringRate(float multiplier)
+    {
+        firingRate = firingRate / multiplier;
     }
 }
