@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   padding: 0.5
-  health: 300
+  health: 30000
   projectile: {fileID: 137750, guid: 369c39ac3ad2d4b40bf4fd23baddc409, type: 3}
   projectileSpeed: 17
   firingRate: 0.1

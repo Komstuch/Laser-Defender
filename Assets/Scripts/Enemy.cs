@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float projectileSpeed = 10f;
 
     [Header("Pick-Up's")]
-    [SerializeField] GameObject pickupList;
+    [SerializeField] List<GameObject> pickupList;
     [SerializeField] [Range(0, 1)] float spawnPropability;
 
     [Header("VFX")]
@@ -87,11 +87,18 @@ public class Enemy : MonoBehaviour {
     private void SpawnPickup()
     {
         bool isSpawned = (UnityEngine.Random.Range(0f, 1f) < spawnPropability);
-        Debug.Log("Spawn pickup?: " + isSpawned);
         if (isSpawned)
         {
-            GameObject pickup = Instantiate(pickupList, transform.position, Quaternion.identity);
+            int selectedPickup = SelectPickup();
+            GameObject pickup = Instantiate(pickupList[selectedPickup], transform.position, Quaternion.identity);
             pickup.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -3f);
         }
+    }
+
+    private int SelectPickup()
+    {
+        int pickupCount = pickupList.Count;
+        int pickupNumber = UnityEngine.Random.Range(0, pickupCount);
+        return pickupNumber;
     }
 }

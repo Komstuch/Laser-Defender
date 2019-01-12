@@ -147,7 +147,10 @@ public class PlayerController : MonoBehaviour {
 
     public int GetHealth() { return health; }
 
-    public void AddHealth(int health) { this.health += health; }
+    public void AddHealth(int health)
+    {
+        this.health += health;
+    }
     
     public void SetProjectileDamage(float multiplier)
     {
@@ -156,6 +159,6 @@ public class PlayerController : MonoBehaviour {
 
     public void IncreaseFiringRate(float multiplier)
     {
-        firingRate = firingRate / multiplier;
+        firingRate = firingRate - firingRate * multiplier;
     }
 }

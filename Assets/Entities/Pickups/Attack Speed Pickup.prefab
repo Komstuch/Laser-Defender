@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupProperty: ShotSpeed
-  pickupValue: 0.2
+  pickupValue: 0.1
   pickupSound: {fileID: 8300000, guid: 92259622e9f1370439bbaf731f57d979, type: 3}
   pickupEffect: {fileID: 3518673598674969625, guid: ade9e78cb21a3ff4bab773971af4f276,
     type: 3}
