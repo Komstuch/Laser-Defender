@@ -25,16 +25,16 @@ public class LevelManager : MonoBehaviour {
         SceneManager.LoadScene(name);
     }
 
-    private void LoadStartSceene()
+    private void LoadStartScene()
     {
         StartCoroutine(WaitAndLoad("Start Menu", 3));
     }
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            LoadStartSceene();
-        }
+        //if(SceneManager.GetActiveScene().buildIndex == 0)
+        //{
+        //    LoadStartScene();
+        //}
     }
 }

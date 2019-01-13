@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] InputField nameInput;
 
-    // Update is called once per frame
-    void Update()
+    string playerName;
+    public void SetPlayerName()
     {
-        
+        playerName = nameInput.text.ToString();
+        Debug.Log("name form input " + playerName);
+        PlayerPrefs.SetString("PlayerName", playerName);
     }
 }
