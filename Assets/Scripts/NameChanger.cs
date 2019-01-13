@@ -10,7 +10,13 @@ public class NameChanger : MonoBehaviour
     [SerializeField] GameObject inputMenu;
     [SerializeField] GameObject nameDisplay;
 
+    Authenticator authenticator;
     string newName;
+
+    private void Start()
+    {
+        authenticator = FindObjectOfType<Authenticator>();
+    }
 
     public void ChangeName()
         {
@@ -27,5 +33,6 @@ public class NameChanger : MonoBehaviour
         changeNameButton.SetActive(true);
         quitButton.SetActive(true);
         inputMenu.SetActive(false);
+        authenticator.ProcessRegistration();
     }
 }
