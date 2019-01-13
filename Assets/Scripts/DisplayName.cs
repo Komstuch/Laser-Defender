@@ -10,8 +10,13 @@ public class DisplayName : MonoBehaviour
 
     void Start()
     {
-        playerName = PlayerPrefs.GetString("PlayerName", "Player");
-        Debug.Log("Name form playerprefs: " + playerName);
+        GetName();
+    }
+
+    public void GetName()
+    {
+        playerName = PlayerPrefs.GetString("PlayerName");
+        Debug.Log("Name from PlayerPrefs: " + playerName);
         displayText = GetComponent<Text>();
         displayText.text = playerName;
     }
