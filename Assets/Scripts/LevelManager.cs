@@ -29,12 +29,4 @@ public class LevelManager : MonoBehaviour {
     {
         StartCoroutine(WaitAndLoad("Start Menu", 3));
     }
-
-    private void Start()
-    {
-        //if(SceneManager.GetActiveScene().buildIndex == 0)
-        //{
-        //    LoadStartScene();
-        //}
-    }
 }
