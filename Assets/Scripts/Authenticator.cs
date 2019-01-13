@@ -12,6 +12,7 @@ public class Authenticator : MonoBehaviour
 
     void Start()
     {
+        //Verify if curren user is already authenticated
         ProcessRegistration();
     }
 
@@ -27,6 +28,7 @@ public class Authenticator : MonoBehaviour
         password = "dupadupa1234";
 
         RegisterRequest();
+        AuthRequest();
     }
 
     public void RegisterRequest()
