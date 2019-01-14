@@ -16,5 +16,5 @@ MonoBehaviour:
   apiKey: M375242bw8Cc
   credential: device
   apiSecret: f6eWRPncLa1cMsC2w5AjSt5v86iknUo7
-  previewBuild: 1
-  debugBuild: 1
+  previewBuild: 0
+  debugBuild: 0
