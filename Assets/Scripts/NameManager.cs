@@ -16,6 +16,9 @@ public class NameManager : MonoBehaviour
 
     private void Start()
     {
+        //For Debugging Purposes
+        PlayerPrefs.DeleteAll();
+
         nameInput = nameInputField.GetComponent<InputField>();
         levelManager = FindObjectOfType<LevelManager>();
 
@@ -24,7 +27,6 @@ public class NameManager : MonoBehaviour
         nameText.SetActive(false);
 
         playerName = PlayerPrefs.GetString("PlayerName");
-        Debug.Log("Name from playerprefs: " + playerName);
 
         if (playerName == "")
         {
@@ -40,7 +42,6 @@ public class NameManager : MonoBehaviour
         }
 
     }
-
 
     public void SetPlayerName()
     {
