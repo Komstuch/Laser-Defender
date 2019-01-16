@@ -13,7 +13,6 @@ public class ScorePoster : MonoBehaviour
         finalScore = ScoreKeeper.score;
         Debug.Log("Final Score: " + finalScore.ToString());
         PostScore(finalScore);
-        ScoreKeeper.Reset();
     }
 
     private void PostScore(int score)

@@ -8,7 +8,11 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = true;
 
+    AnalyticsManager analyticsManager;
+
 	IEnumerator Start () {
+        analyticsManager = FindObjectOfType<AnalyticsManager>();
+
         do
         {
             yield return StartCoroutine(SpawnAllWaves());
@@ -23,6 +27,7 @@ public class EnemySpawner : MonoBehaviour {
             var currentWave = waveConfigs[waveIndex];
             yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave)); //Nested Coroutines
         }
+        analyticsManager.AddCyclesCompleted();
     }
 	
 	private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
@@ -33,5 +38,6 @@ public class EnemySpawner : MonoBehaviour {
             newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
             yield return new WaitForSeconds(waveConfig.GetTimeBetwenSpawns());
         }
+        analyticsManager.AddWavesCompleted();
     }
 }

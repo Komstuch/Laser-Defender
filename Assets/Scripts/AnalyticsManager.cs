@@ -12,6 +12,8 @@ public class AnalyticsManager : MonoBehaviour
     int damagePickups;
     int speedPickups;
     int pointPickups;
+    int wavesCompleted;
+    int cyclesCompleted;
 
     private void Start()
     {
@@ -22,6 +24,8 @@ public class AnalyticsManager : MonoBehaviour
         damagePickups = 0;
         speedPickups = 0;
         pointPickups = 0;
+        wavesCompleted = 0;
+        cyclesCompleted = 0;
     }
 
     public void AddEnemies() { enemiesKilled += 1; }
@@ -30,6 +34,8 @@ public class AnalyticsManager : MonoBehaviour
     public void AddSpeedPickups() { speedPickups += 1; }
     public void AddDamagePickups() { damagePickups += 1; }
     public void AddPointPickups() { pointPickups += 1; }
+    public void AddWavesCompleted() { wavesCompleted += 1; }
+    public void AddCyclesCompleted() { cyclesCompleted += 1; }
 
     public void PostResults()
     {
@@ -44,8 +50,9 @@ public class AnalyticsManager : MonoBehaviour
             {"# of health pickups", healthPickups },
             {"# of speed pickups", speedPickups },
             {"# of point pickups", pointPickups },
+            {"# of waves completed", wavesCompleted },
         });
-    }
 
-    //TODO - Set event for wave cycle completion
+        Analytics.CustomEvent("Cycle " + cyclesCompleted.ToString());
+    }
 }
