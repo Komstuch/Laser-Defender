@@ -30,9 +30,12 @@ public class Enemy : MonoBehaviour {
     [SerializeField] [Range(0,2)] float fireSoundVolume = 2f;
     [SerializeField] [Range(0,1)] float deathSoundVolume = 0.1f;
 
+    AnalyticsManager analyticsManager;
+
     private void Start()
     {
-        shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);    
+        shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        analyticsManager = FindObjectOfType<AnalyticsManager>();
     }
     private void Update()
     {
@@ -77,6 +80,7 @@ public class Enemy : MonoBehaviour {
     public void Die()
     {
         FindObjectOfType<ScoreKeeper>().AddScore(scoreValue);
+        analyticsManager.AddEnemies();
 
         GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
