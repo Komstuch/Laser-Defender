@@ -299,7 +299,7 @@ namespace GameSparks.Editor
     		
     		
     		EditorGUILayout.BeginHorizontal();
-    		//GameSparksSettings.PreviewBuild = EditorGUILayout.Toggle(previewLabel, GameSparksSettings.PreviewBuild);
+    		GameSparksSettings.PreviewBuild = EditorGUILayout.Toggle(previewLabel, GameSparksSettings.PreviewBuild);
             EditorGUILayout.EndHorizontal();
     		
     		EditorGUILayout.BeginHorizontal();

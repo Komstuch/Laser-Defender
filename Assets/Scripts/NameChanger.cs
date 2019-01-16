@@ -34,5 +34,6 @@ public class NameChanger : MonoBehaviour
         quitButton.SetActive(true);
         inputMenu.SetActive(false);
         authenticator.GetRegistrationData();
+        authenticator.AuthRequest();
     }
 }

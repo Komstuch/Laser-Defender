@@ -27,7 +27,7 @@ public class ScorePoster : MonoBehaviour
     {
         if (!response.HasErrors)
         {
-            Debug.Log("Score Posted Successfully...");
+            Debug.Log("Score Posted Successfully..." + finalScore);
         }
         else
         {
