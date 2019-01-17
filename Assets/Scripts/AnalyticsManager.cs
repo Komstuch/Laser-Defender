@@ -13,7 +13,6 @@ public class AnalyticsManager : MonoBehaviour
     int speedPickups;
     int pointPickups;
     int wavesCompleted;
-    int cyclesCompleted;
 
     private void Start()
     {
@@ -25,7 +24,6 @@ public class AnalyticsManager : MonoBehaviour
         speedPickups = 0;
         pointPickups = 0;
         wavesCompleted = 0;
-        cyclesCompleted = 0;
     }
 
     public void AddEnemies() { enemiesKilled += 1; }
@@ -35,7 +33,6 @@ public class AnalyticsManager : MonoBehaviour
     public void AddDamagePickups() { damagePickups += 1; }
     public void AddPointPickups() { pointPickups += 1; }
     public void AddWavesCompleted() { wavesCompleted += 1; }
-    public void AddCyclesCompleted() { cyclesCompleted += 1; }
 
     public void PostResults()
     {
@@ -52,7 +49,5 @@ public class AnalyticsManager : MonoBehaviour
             {"# of point pickups", pointPickups },
             {"# of waves completed", wavesCompleted },
         });
-
-        Analytics.CustomEvent("Cycle " + cyclesCompleted.ToString());
     }
 }

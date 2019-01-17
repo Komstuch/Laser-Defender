@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class EnemySpawner : MonoBehaviour {
 
@@ -9,9 +10,11 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] bool looping = true;
 
     AnalyticsManager analyticsManager;
+    int cyclesCompleted;
 
-	IEnumerator Start () {
+    IEnumerator Start () {
         analyticsManager = FindObjectOfType<AnalyticsManager>();
+        cyclesCompleted = 0;
 
         do
         {
@@ -22,12 +25,14 @@ public class EnemySpawner : MonoBehaviour {
 
     private IEnumerator SpawnAllWaves()
     {
-        for(int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex++)
+        Analytics.CustomEvent("Cycle " + cyclesCompleted.ToString());
+
+        for (int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex++)
         {
             var currentWave = waveConfigs[waveIndex];
             yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave)); //Nested Coroutines
         }
-        analyticsManager.AddCyclesCompleted();
+        cyclesCompleted++;
     }
 	
 	private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
