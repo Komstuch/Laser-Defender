@@ -6,8 +6,8 @@ using System;
 public class PlayerController : MonoBehaviour {
 
     [Header("Player")]
-    [SerializeField] float moveSpeed = 15.0f;
-    [SerializeField] float padding = 0.5f;
+    public float moveSpeed = 15.0f;
+    public float padding = 0.5f;
     [SerializeField] int health = 200;
 
     [Header("Projectile")]
