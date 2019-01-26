@@ -5,9 +5,8 @@ public class Bomb : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] AudioClip fireSound;
 
-    private float averageTimeBetweenShots = 1f;
+    private float averageTimeBetweenShots = 3f;
     private int numberOfProjectiles = 6;
-    [SerializeField] float offset = 2f;
     private float projectileSpeed = 1f;
 
     private float[] offsets = { 50f, 90f, 120f, 240f, 270f, 310f };
@@ -15,6 +14,7 @@ public class Bomb : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody2D>().angularVelocity =  30f;
+        GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity / 2f;
     }
     private void Update()
     {
