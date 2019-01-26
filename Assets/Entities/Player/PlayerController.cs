@@ -47,17 +47,19 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        //HandleFire();
+        HandleFire();
         Move();
     }
 
     public void HandleFireButton()
     {
+        firingOn = true;
         firingCoroutine = StartCoroutine(FireContinously());
     }
 
     public void StopFireButton()
     {
+        firingOn = false;
         StopCoroutine(firingCoroutine);
     }
 

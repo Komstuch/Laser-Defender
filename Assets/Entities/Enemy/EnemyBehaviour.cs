@@ -15,8 +15,6 @@ public class EnemyBehaviour : MonoBehaviour {
 	
 	void Start(){
 		scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
-	
-	
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider){
