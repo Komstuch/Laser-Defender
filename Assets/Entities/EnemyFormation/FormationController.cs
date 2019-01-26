@@ -20,8 +20,6 @@ public class FormationController : MonoBehaviour {
 		Vector3 rightBoundary = Camera.main.ViewportToWorldPoint(new Vector3(1,0, distanceToCamera));
 		xmax = rightBoundary.x;
 		xmin = leftBoundary.x;
-
-        print(xmin + " " + xmax);
 		
 		SpawnUntillFull();
 	}
@@ -46,7 +44,6 @@ public class FormationController : MonoBehaviour {
 	
 	public void OnDrawGizmos(){
 		Gizmos.DrawWireCube(transform.position, new Vector3(width, height, 0f));
-	
 	}
 	
 	// Update is called once per frame
