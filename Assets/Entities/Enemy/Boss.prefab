@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd19ce795e35bdf42a5a4d6cb49e56cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5000
+  health: 2000
   scoreValue: 30000
   projectile: {fileID: 7252615894588929913, guid: 8a3c7f69e57f6c247ac66b2dabefcb48,
     type: 3}
@@ -254,6 +254,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4badca308f32714409f827ce0c5e4ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1397499832176321431, guid: 89502fa3b5325bb47bf7fb998383d6bd,
-    type: 3}
-  bossText: {fileID: 403935645182659748, guid: d8c19f0e62db4b9449558afb1d2f8343, type: 3}

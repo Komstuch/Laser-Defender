@@ -10,9 +10,13 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = true;
 
-    FormationController bossFormation;
-    AnalyticsManager analyticsManager;
-    int cyclesCompleted;
+    private FormationController bossFormation;
+    private AnalyticsManager analyticsManager;
+    private int cyclesCompleted;
+    private float speedMultiplier = 0f;
+    private float healthMultiplier = 0f;
+    private float damageMultiplier = 0f;
+    private float scoreMultiplier = 0f;
 
     [Header("Boss UI")]
     [SerializeField] HealthBar healthBar;
@@ -43,6 +47,7 @@ public class EnemySpawner : MonoBehaviour {
         ActivateHealthBar();
         yield return StartCoroutine(bossFormation.StartBossFight());
         DeactivateHealthBar();
+        IncreaseDifficulty();
     }
 	
 	private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
@@ -67,4 +72,17 @@ public class EnemySpawner : MonoBehaviour {
         healthBar.transform.parent.gameObject.SetActive(true);
         bossText.gameObject.SetActive(true);
     }
+
+    private void IncreaseDifficulty()
+    {
+        speedMultiplier += 0.1f;
+        healthMultiplier += 0.2f;
+        damageMultiplier += 0.1f;
+        scoreMultiplier += 0.2f;
+}
+
+    public float GetDamageMultiplier() { return damageMultiplier; }
+    public float GetHealthMultiplier() { return healthMultiplier; }
+    public float GetSpeedMultiplier() { return speedMultiplier; }
+    public float GetScoreMultiplier() { return scoreMultiplier; }
 }

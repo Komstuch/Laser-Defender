@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyPathing : MonoBehaviour {
 
     WaveConfig waveConfig;
+    EnemySpawner enemySpawner;
     List<Transform> waypoints;
     int waypointIndex = 0;
     
     private void Start()
     {
+        enemySpawner = FindObjectOfType<EnemySpawner>();
         waypoints = waveConfig.GetWaypoints();
         transform.position = waypoints[waypointIndex].transform.position;
     }
@@ -29,7 +31,7 @@ public class EnemyPathing : MonoBehaviour {
         if (waypointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
-            var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
+            var movementThisFrame = ScaledMoveSpeed() * Time.deltaTime;
 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
@@ -42,5 +44,12 @@ public class EnemyPathing : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    private float ScaledMoveSpeed()
+    {
+        float waveSpeed = waveConfig.GetMoveSpeed();
+        float newSpeed = waveSpeed + waveSpeed * enemySpawner.GetSpeedMultiplier();
+        return newSpeed;
     }
 }

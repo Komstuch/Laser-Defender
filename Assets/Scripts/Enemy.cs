@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour {
 
     [Header("Shooting")]
     [SerializeField] GameObject projectile;
-    float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 10f;
+    private float shotCounter;
 
     [Header("Pick-Up's")]
     [SerializeField] List<GameObject> pickupList;
@@ -32,13 +32,17 @@ public class Enemy : MonoBehaviour {
 
     AnalyticsManager analyticsManager;
     Boss boss;
+    EnemySpawner enemySpawner;
 
     private void Start()
     {
         shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         analyticsManager = FindObjectOfType<AnalyticsManager>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
         boss = GetComponent<Boss>();
+        SetDifficultyParameters();
     }
+
     private void Update()
     {
         CountDownAndShoot();
@@ -110,4 +114,11 @@ public class Enemy : MonoBehaviour {
     }
 
     public float GetHP() { return health; }
+
+    private void SetDifficultyParameters()
+    {
+        health = health + health * enemySpawner.GetHealthMultiplier();
+        projectile.GetComponent<DamageDealer>().IncreaseDamage(enemySpawner.GetDamageMultiplier());
+        scoreValue = scoreValue + (int)(scoreValue * enemySpawner.GetScoreMultiplier());
+    }
 }
