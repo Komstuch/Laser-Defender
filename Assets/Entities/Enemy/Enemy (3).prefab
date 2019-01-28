@@ -115,7 +115,8 @@ MonoBehaviour:
   projectileSpeed: 10
   pickupList:
   - {fileID: 4693881410631737565, guid: 5a280fca4b277d34eb191021cf266755, type: 3}
-  spawnPropability: 0.1
+  - {fileID: 4693881410631737565, guid: 77e010c936edf7941997aa031b97ac17, type: 3}
+  spawnPropability: 0.2
   explosionParticles: {fileID: 2271188755247340579, guid: a4991431c78c7d14581c07c15f261f7d,
     type: 3}
   durationOfExplosion: 1
