@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 7370968964264855006}
   - component: {fileID: 9043883668235010124}
   - component: {fileID: 1075118920}
+  - component: {fileID: 1827650947}
   m_Layer: 9
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
   projectileSpeed: 7
   pickupList:
   - {fileID: 4693881410631737565, guid: 5a280fca4b277d34eb191021cf266755, type: 3}
+  - {fileID: 4693881410631737565, guid: d9ff1b702a569c44ca4cb92fc06275d8, type: 3}
   spawnPropability: 1
   explosionParticles: {fileID: 2271188755247340579, guid: a4991431c78c7d14581c07c15f261f7d,
     type: 3}
@@ -240,3 +242,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1827650947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409245153098748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4badca308f32714409f827ce0c5e4ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1397499832176321431, guid: 89502fa3b5325bb47bf7fb998383d6bd,
+    type: 3}
+  bossText: {fileID: 403935645182659748, guid: d8c19f0e62db4b9449558afb1d2f8343, type: 3}

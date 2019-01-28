@@ -45,9 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveConfigs:
   - {fileID: 11400000, guid: 83097a2bb048f1b49be5a4fb25bbed33, type: 2}
-  - {fileID: 11400000, guid: 1f2e3c037af30574c9011be8956dc79a, type: 2}
-  - {fileID: 11400000, guid: ac65ca224abe03c44b7996ef24375aa9, type: 2}
-  - {fileID: 11400000, guid: 4d8178c777e50bd4d9ba0e816671365d, type: 2}
-  - {fileID: 11400000, guid: 8c26fdf9651a44c44aa0cda5269cc6a2, type: 2}
   startingWave: 0
   looping: 1
+  healthBar: {fileID: 0}
+  bossText: {fileID: 0}

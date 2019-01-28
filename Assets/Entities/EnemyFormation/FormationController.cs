@@ -7,8 +7,9 @@ public class FormationController : MonoBehaviour {
 	public float width = 8.5f;
 	public float height = 7.5f;
 	public float speed = 5f;
-	public float spawnDelay = 0.5f;
-	
+	public float spawnDelay = 2f;
+
+    private bool bossFight = false;
 	private bool movingRight = false;
 	private float xmax, xmin;
 
@@ -21,7 +22,7 @@ public class FormationController : MonoBehaviour {
 		xmax = rightBoundary.x;
 		xmin = leftBoundary.x;
 		
-		SpawnUntillFull();
+		//SpawnUntillFull();
 	}
 	
 	void SpawnEnemies(){
@@ -45,28 +46,38 @@ public class FormationController : MonoBehaviour {
 	public void OnDrawGizmos(){
 		Gizmos.DrawWireCube(transform.position, new Vector3(width, height, 0f));
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		if (movingRight){
-			transform.position += Vector3.right*speed*Time.deltaTime;
-		} else{
-			transform.position += Vector3.left*speed*Time.deltaTime;
-		}
-		
-		// Check if formation is going outside of the playspace
-		float rightEdgeOfFormation = transform.position.x + (0.5f*width);
-		float leftEdgeOfFormation = transform.position.x - (0.5f*width);
-		if(leftEdgeOfFormation < xmin){
-			movingRight = true;
-		} else if (rightEdgeOfFormation > xmax){
-			movingRight = false;
-		}
-		
-		if(AllMembersDead()){
-			Debug.Log("Empty Formation");
-			SpawnUntillFull();
-		}
+        if (bossFight)
+        {
+            if (movingRight)
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position += Vector3.left * speed * Time.deltaTime;
+            }
+
+            // Check if formation is going outside of the playspace
+            float rightEdgeOfFormation = transform.position.x + (0.5f * width);
+            float leftEdgeOfFormation = transform.position.x - (0.5f * width);
+            if (leftEdgeOfFormation < xmin)
+            {
+                movingRight = true;
+            }
+            else if (rightEdgeOfFormation > xmax)
+            {
+                movingRight = false;
+            }
+
+            if (AllMembersDead())
+            {
+                Debug.Log("Boss Defeated");
+                bossFight = false;
+                //SpawnUntillFull();
+            }
+        }
 	}
 	
 	Transform NextFreePosition(){
@@ -86,4 +97,10 @@ public class FormationController : MonoBehaviour {
 		}
 		return true;
 	}
+
+    public IEnumerator StartBossFight() {
+        bossFight = true;
+        SpawnUntillFull();
+        yield return new WaitUntil(() => bossFight == false);
+    }
 }

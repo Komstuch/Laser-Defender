@@ -5,7 +5,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] AudioClip fireSound;
 
-    private float averageTimeBetweenShots = 3f;
+    private float averageTimeBetweenShots = 2f;
     private int numberOfProjectiles = 6;
     private float projectileSpeed = 1f;
 

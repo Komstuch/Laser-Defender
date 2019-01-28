@@ -5,15 +5,22 @@ using UnityEngine.Analytics;
 
 public class EnemySpawner : MonoBehaviour {
 
+    [Header("Wave Configuration")]
     [SerializeField] List<WaveConfig> waveConfigs;
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = true;
 
+    FormationController bossFormation;
     AnalyticsManager analyticsManager;
     int cyclesCompleted;
 
+    [Header("Boss UI")]
+    [SerializeField] HealthBar healthBar;
+    [SerializeField] BossText bossText;
+
     IEnumerator Start () {
         analyticsManager = FindObjectOfType<AnalyticsManager>();
+        bossFormation = FindObjectOfType<FormationController>();
         cyclesCompleted = 0;
 
         do
@@ -33,6 +40,9 @@ public class EnemySpawner : MonoBehaviour {
             yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave)); //Nested Coroutines
         }
         cyclesCompleted++;
+        ActivateHealthBar();
+        yield return StartCoroutine(bossFormation.StartBossFight());
+        DeactivateHealthBar();
     }
 	
 	private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
@@ -44,5 +54,17 @@ public class EnemySpawner : MonoBehaviour {
             yield return new WaitForSeconds(waveConfig.GetTimeBetwenSpawns());
         }
         analyticsManager.AddWavesCompleted();
+    }
+
+    public void DeactivateHealthBar()
+    {
+        healthBar.transform.parent.gameObject.SetActive(false);
+        bossText.gameObject.SetActive(false);
+    }
+
+    private void ActivateHealthBar()
+    {
+        healthBar.transform.parent.gameObject.SetActive(true);
+        bossText.gameObject.SetActive(true);
     }
 }

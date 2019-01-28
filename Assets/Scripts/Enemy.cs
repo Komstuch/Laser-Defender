@@ -31,11 +31,13 @@ public class Enemy : MonoBehaviour {
     [SerializeField] [Range(0,1)] float deathSoundVolume = 0.1f;
 
     AnalyticsManager analyticsManager;
+    Boss boss;
 
     private void Start()
     {
         shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         analyticsManager = FindObjectOfType<AnalyticsManager>();
+        boss = GetComponent<Boss>();
     }
     private void Update()
     {
@@ -70,6 +72,7 @@ public class Enemy : MonoBehaviour {
     {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
+        if(boss) { boss.UpdateHealthbar(health); }
         if (health <= 0)
         {
             Die();
@@ -105,4 +108,6 @@ public class Enemy : MonoBehaviour {
         int pickupNumber = UnityEngine.Random.Range(0, pickupCount);
         return pickupNumber;
     }
+
+    public float GetHP() { return health; }
 }
