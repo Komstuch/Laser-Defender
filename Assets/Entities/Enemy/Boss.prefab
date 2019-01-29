@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2000
-  scoreValue: 30000
+  scoreValue: 10000
   projectile: {fileID: 7252615894588929913, guid: 8a3c7f69e57f6c247ac66b2dabefcb48,
     type: 3}
   minTimeBetweenShots: 3

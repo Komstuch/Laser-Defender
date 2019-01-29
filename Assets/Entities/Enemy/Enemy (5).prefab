@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7370968964264855006}
   - component: {fileID: 6601128974649363021}
   m_Layer: 9
-  m_Name: Enemy (3)
+  m_Name: Enemy (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409245153098748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.058573663, y: -0.52606153, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &212270580373780730
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cec6c36438c49a4d95ff27292c6ca5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab783e4e7d7105841a11688888fd0ce0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,14 +108,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 400
-  scoreValue: 460
+  scoreValue: 500
   projectile: {fileID: 137750, guid: f2851df1d0e7aea458b416959c034962, type: 3}
-  minTimeBetweenShots: 0.2
+  minTimeBetweenShots: 1
   maxTimeBetweenShots: 2
-  projectileSpeed: 10
+  projectileSpeed: 5
   pickupList:
-  - {fileID: 4693881410631737565, guid: 5a280fca4b277d34eb191021cf266755, type: 3}
-  - {fileID: 4693881410631737565, guid: 77e010c936edf7941997aa031b97ac17, type: 3}
+  - {fileID: 4693881410631737565, guid: d9ff1b702a569c44ca4cb92fc06275d8, type: 3}
+  - {fileID: 4693881410631737565, guid: 1ef25b198e4c9fb4b987703bdc86eac4, type: 3}
   spawnPropability: 0.2
   explosionParticles: {fileID: 2271188755247340579, guid: a4991431c78c7d14581c07c15f261f7d,
     type: 3}
@@ -154,7 +154,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.94, y: 1.68}
+    oldSize: {x: 0.98, y: 0.75}
     newSize: {x: 1.03, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
