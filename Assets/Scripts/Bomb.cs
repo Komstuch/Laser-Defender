@@ -29,7 +29,6 @@ public class Bomb : MonoBehaviour
     {
         float currentAngle = 360 - transform.rotation.eulerAngles.z;
         
-        Debug.Log("Current Angle: " + currentAngle);
         for(int i = 0; i < numberOfProjectiles; i++)
         {
             float radianAngle = (currentAngle + offsets[i]) * Mathf.Deg2Rad;

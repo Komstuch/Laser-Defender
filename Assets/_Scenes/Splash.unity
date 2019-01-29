@@ -728,6 +728,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
+        type: 3}
+      propertyPath: nameInputField
+      value: 
+      objectReference: {fileID: 91742125}
+    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
+        type: 3}
+      propertyPath: introText
+      value: 
+      objectReference: {fileID: 897048178}
+    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
+        type: 3}
+      propertyPath: startButton
+      value: 
+      objectReference: {fileID: 1952396695}
+    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
+        type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 650848467}
     - target: {fileID: 6740874434564863620, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -783,26 +803,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
-        type: 3}
-      propertyPath: nameInputField
-      value: 
-      objectReference: {fileID: 91742125}
-    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
-        type: 3}
-      propertyPath: introText
-      value: 
-      objectReference: {fileID: 897048178}
-    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
-        type: 3}
-      propertyPath: startButton
-      value: 
-      objectReference: {fileID: 1952396695}
-    - target: {fileID: 6740874434564863619, guid: 0d3fb8c4ff17322488354eaa0fbc432a,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 650848467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d3fb8c4ff17322488354eaa0fbc432a, type: 3}
 --- !u!1001 &7442297048293463436
@@ -927,5 +927,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 145838323}
+    - target: {fileID: 7442297049036534194, guid: 7b5e8b7682c27044f952acdd2f0957e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Space
+
+        Defender'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b5e8b7682c27044f952acdd2f0957e7, type: 3}
