@@ -17,6 +17,7 @@ public class EnemySpawner : MonoBehaviour {
     private float healthMultiplier = 0f;
     private float damageMultiplier = 0f;
     private float scoreMultiplier = 0f;
+    private int enemyIncrement = 0;
 
     [Header("Boss UI")]
     [SerializeField] HealthBar healthBar;
@@ -52,13 +53,15 @@ public class EnemySpawner : MonoBehaviour {
 	
 	private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
     {
-        for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
+        int currentWaveEnemyCount = waveConfig.GetNumberOfEnemies() + enemyIncrement;
+        for (int enemyCount = 0; enemyCount < currentWaveEnemyCount; enemyCount++)
         {
             var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
             newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
             yield return new WaitForSeconds(waveConfig.GetTimeBetwenSpawns());
         }
         analyticsManager.AddWavesCompleted();
+        yield return new WaitForSeconds(1f);
     }
 
     public void DeactivateHealthBar()
@@ -79,6 +82,7 @@ public class EnemySpawner : MonoBehaviour {
         healthMultiplier += 0.2f;
         damageMultiplier += 0.1f;
         scoreMultiplier += 0.2f;
+        enemyIncrement++;
 }
 
     public float GetDamageMultiplier() { return damageMultiplier; }

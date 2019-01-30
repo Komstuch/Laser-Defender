@@ -110,9 +110,9 @@ MonoBehaviour:
   health: 400
   scoreValue: 460
   projectile: {fileID: 137750, guid: f2851df1d0e7aea458b416959c034962, type: 3}
-  minTimeBetweenShots: 0.2
+  minTimeBetweenShots: 1
   maxTimeBetweenShots: 2
-  projectileSpeed: 10
+  projectileSpeed: 3
   pickupList:
   - {fileID: 4693881410631737565, guid: 5a280fca4b277d34eb191021cf266755, type: 3}
   - {fileID: 4693881410631737565, guid: 77e010c936edf7941997aa031b97ac17, type: 3}

@@ -45,6 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveConfigs:
   - {fileID: 11400000, guid: 83097a2bb048f1b49be5a4fb25bbed33, type: 2}
+  - {fileID: 11400000, guid: 1f2e3c037af30574c9011be8956dc79a, type: 2}
+  - {fileID: 11400000, guid: ac65ca224abe03c44b7996ef24375aa9, type: 2}
+  - {fileID: 11400000, guid: 4d8178c777e50bd4d9ba0e816671365d, type: 2}
+  - {fileID: 11400000, guid: 8c26fdf9651a44c44aa0cda5269cc6a2, type: 2}
+  - {fileID: 11400000, guid: 6e626670f1bf59948a96fe5217fd7ca1, type: 2}
+  - {fileID: 11400000, guid: fc88b7b7cfb20ff4fb3e7198a59b4a1d, type: 2}
+  - {fileID: 11400000, guid: 5718d5c8ee5e1fc4f8adea104fa27c83, type: 2}
+  - {fileID: 11400000, guid: 79a0cc8587c833540adff167f94e4e7a, type: 2}
+  - {fileID: 11400000, guid: d1a45d5b679cd8745909755b94e24940, type: 2}
   startingWave: 0
   looping: 1
   healthBar: {fileID: 0}

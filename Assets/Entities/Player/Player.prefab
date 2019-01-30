@@ -97,10 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   padding: 0.5
-  health: 300
+  health: 500
   projectile: {fileID: 137750, guid: 369c39ac3ad2d4b40bf4fd23baddc409, type: 3}
   projectileSpeed: 17
-  firingRate: 0.1
+  firingRate: 0.2
   fireSound: {fileID: 8300000, guid: 44d51dd649e20ab43834225e9968ff6f, type: 3}
   deathSound: {fileID: 8300000, guid: cf36d3afa94dbf94da9e589ecd938450, type: 3}
   hitSound: {fileID: 8300000, guid: 1c6607da5b1703d4c85c0d111a528d3e, type: 3}
