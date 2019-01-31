@@ -112,7 +112,7 @@ MonoBehaviour:
   projectile: {fileID: 137750, guid: f2851df1d0e7aea458b416959c034962, type: 3}
   minTimeBetweenShots: 1
   maxTimeBetweenShots: 2
-  projectileSpeed: 3
+  projectileSpeed: 4
   pickupList:
   - {fileID: 4693881410631737565, guid: 5a280fca4b277d34eb191021cf266755, type: 3}
   - {fileID: 4693881410631737565, guid: 77e010c936edf7941997aa031b97ac17, type: 3}

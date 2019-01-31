@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     Coroutine firingCoroutine;
     HealthDisplay healthDisplay;
     ProcessPickup pickupProcessor;
+    EngineThruster engineThruster;
 
     private float xMin, xMax, yMin, yMax;
     private bool firingOn = false;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         deathEffectDuration = deathEffect.GetComponent<ParticleSystem>().main.duration;
         pickupProcessor = GetComponent<ProcessPickup>();
         analyticsManager = FindObjectOfType<AnalyticsManager>();
+        engineThruster = FindObjectOfType<EngineThruster>();
     }
 
     void Update()
@@ -147,6 +149,7 @@ public class PlayerController : MonoBehaviour {
         newYPos = Mathf.Clamp(newYPos, yMin, yMax);
 
         transform.position = new Vector3(newXPos, newYPos, transform.position.z);
+        engineThruster.transform.position = transform.position + new Vector3 (0f, -0.4f, 0f);
     }
 
     private void SetMoveboundaries()

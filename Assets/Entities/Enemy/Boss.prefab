@@ -100,8 +100,8 @@ MonoBehaviour:
   scoreValue: 10000
   projectile: {fileID: 7252615894588929913, guid: 8a3c7f69e57f6c247ac66b2dabefcb48,
     type: 3}
-  minTimeBetweenShots: 3
-  maxTimeBetweenShots: 5
+  minTimeBetweenShots: 2
+  maxTimeBetweenShots: 4
   projectileSpeed: 7
   pickupList:
   - {fileID: 4693881410631737565, guid: 5a280fca4b277d34eb191021cf266755, type: 3}
