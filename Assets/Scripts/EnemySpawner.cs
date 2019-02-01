@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour {
     private float damageMultiplier = 0f;
     private float scoreMultiplier = 0f;
     private int enemyIncrement = 0;
+    private float modifiedTimeBetweenSpawns;
 
     [Header("Boss UI")]
     [SerializeField] HealthBar healthBar;
@@ -58,7 +59,10 @@ public class EnemySpawner : MonoBehaviour {
         {
             var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
             newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
-            yield return new WaitForSeconds(waveConfig.GetTimeBetwenSpawns());
+
+            modifiedTimeBetweenSpawns = waveConfig.GetTimeBetwenSpawns() - speedMultiplier * waveConfig.GetTimeBetwenSpawns();
+            if (modifiedTimeBetweenSpawns <= 0f) { modifiedTimeBetweenSpawns = 0.1f * waveConfig.GetTimeBetwenSpawns(); }
+            yield return new WaitForSeconds(modifiedTimeBetweenSpawns);
         }
         analyticsManager.AddWavesCompleted();
         yield return new WaitForSeconds(1f);
