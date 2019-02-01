@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour {
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         Destroy(effect, deathEffectDuration);
+        engineThruster.KillEngine();
     }
 
     private void Move()

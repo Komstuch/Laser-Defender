@@ -31,4 +31,8 @@ public class EngineThruster : MonoBehaviour
             particleSystem.Stop();
         }
     }
+    public void KillEngine()
+    {
+        Destroy(gameObject);
+    }
 }
