@@ -877,5 +877,50 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7160166457793317459, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -310
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212602956745116020, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -408
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166458145589822, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166458145589822, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -496
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107206, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107206, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107206, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 480.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107206, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 65.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160166459241107205, guid: b6710ef4f8e32994d8d26ee9b667576d,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6710ef4f8e32994d8d26ee9b667576d, type: 3}
