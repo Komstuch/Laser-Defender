@@ -927,33 +927,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 145838323}
-    - target: {fileID: 7442297049036534194, guid: 7b5e8b7682c27044f952acdd2f0957e7,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Space
-
-        Defender'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7442297048974526977, guid: 7b5e8b7682c27044f952acdd2f0957e7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8d852faa94cc08b49971b2f589c1144a,
-        type: 3}
-    - target: {fileID: 7442297050035551895, guid: 7b5e8b7682c27044f952acdd2f0957e7,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7442297050035551895, guid: 7b5e8b7682c27044f952acdd2f0957e7,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 480
-      objectReference: {fileID: 0}
-    - target: {fileID: 7442297050035551895, guid: 7b5e8b7682c27044f952acdd2f0957e7,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 848
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b5e8b7682c27044f952acdd2f0957e7, type: 3}

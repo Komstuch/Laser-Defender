@@ -691,11 +691,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1400823540}
-    - target: {fileID: 603641423544358901, guid: c6a35687701684a428bdeeab42c001d4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5103087593842309123, guid: c6a35687701684a428bdeeab42c001d4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -716,16 +711,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 185981928}
-    - target: {fileID: 4446922880781409457, guid: c6a35687701684a428bdeeab42c001d4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ConfirmChange
-      objectReference: {fileID: 0}
-    - target: {fileID: 603641423276193822, guid: c6a35687701684a428bdeeab42c001d4,
-        type: 3}
-      propertyPath: m_Text
-      value: Space Defender
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a35687701684a428bdeeab42c001d4, type: 3}
 --- !u!1 &603641423540671381 stripped

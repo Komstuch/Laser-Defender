@@ -55,14 +55,20 @@ public class PlayerController : MonoBehaviour {
 
     public void HandleFireButton()
     {
-        firingOn = true;
-        firingCoroutine = StartCoroutine(FireContinously());
+        if (firingOn == false)
+        {
+            firingOn = true;
+            firingCoroutine = StartCoroutine(FireContinously());
+        }    
     }
 
     public void StopFireButton()
     {
-        firingOn = false;
-        StopCoroutine(firingCoroutine);
+        if (firingOn == true)
+        {
+            firingOn = false;
+            StopCoroutine(firingCoroutine);
+        }
     }
 
     private void HandleFire() {
@@ -165,6 +171,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public int GetHealth() { return health; }
+    public float GetFiringRate() { return firingRate; }
+    public float GetProjectileDamage() { return projectile.GetComponent<DamageDealer>().GetDamage(); }
 
     public void AddHealth(int health)
     {

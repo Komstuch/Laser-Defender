@@ -16,10 +16,16 @@ public class BannerAds : MonoBehaviour
         errorDot.SetActive(false);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Advertisement.IsReady("banner"))
-            {
-                Advertisement.Show("banner");
-            }   else { errorDot.SetActive(true); }
+            PlayAdd();
         } 
+    }
+
+    public void PlayAdd()
+    {
+        if (Advertisement.IsReady("banner"))
+        {
+            Advertisement.Show("banner");
+        }
+        else { errorDot.SetActive(true); }
     }
 }
