@@ -39,7 +39,7 @@ public class Joystick : MonoBehaviour
 
     private void Update()
     {
-        if (movementOn) {
+        if (movementOn & playerController) {
           Move();
         }
     }
