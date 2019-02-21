@@ -4,9 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    SimpleAds simpleAds;
+
     public void LoadLevel(string name){
 		Debug.Log ("New Level load: " + name);
         if (name == "Start Menu") ScoreKeeper.Reset();
+        if(FindObjectOfType<SimpleAds>() & SceneManager.GetActiveScene().name == "Win Screen") { FindObjectOfType<SimpleAds>().DestroyBanner(); }
+
         SceneManager.LoadScene(name);
 	}
 

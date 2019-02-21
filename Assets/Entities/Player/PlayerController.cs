@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject deathEffect;
     float deathEffectDuration;
 
+    SimpleAds simpleAds;
     AnalyticsManager analyticsManager;
     Coroutine firingCoroutine;
     HealthDisplay healthDisplay;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour {
         pickupProcessor = GetComponent<ProcessPickup>();
         analyticsManager = FindObjectOfType<AnalyticsManager>();
         engineThruster = FindObjectOfType<EngineThruster>();
+        simpleAds = FindObjectOfType<SimpleAds>();
     }
 
     void Update()
@@ -135,6 +137,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Die() {
         analyticsManager.PostResults();
+        simpleAds.LoadBanner();
         LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         man.LoadGameOver();
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
