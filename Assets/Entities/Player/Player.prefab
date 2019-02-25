@@ -95,12 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb467dc05fd6544cab55d0a2cc54c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 7
   padding: 0.5
   health: 500
   projectile: {fileID: 137750, guid: 369c39ac3ad2d4b40bf4fd23baddc409, type: 3}
   projectileSpeed: 17
-  firingRate: 0.2
+  firingRate: 0.3
   fireSound: {fileID: 8300000, guid: 44d51dd649e20ab43834225e9968ff6f, type: 3}
   deathSound: {fileID: 8300000, guid: cf36d3afa94dbf94da9e589ecd938450, type: 3}
   hitSound: {fileID: 8300000, guid: 1c6607da5b1703d4c85c0d111a528d3e, type: 3}
