@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject deathEffect;
     float deathEffectDuration;
 
+    [Header("Debug Texts")]
+    [SerializeField] Text touchNum;
+    [SerializeField] Text[] touchPos;
+
     SimpleAds simpleAds;
     AnalyticsManager analyticsManager;
     Coroutine firingCoroutine;
@@ -47,12 +52,30 @@ public class PlayerController : MonoBehaviour {
         analyticsManager = FindObjectOfType<AnalyticsManager>();
         engineThruster = FindObjectOfType<EngineThruster>();
         simpleAds = FindObjectOfType<SimpleAds>();
+        simpleAds.DestroyBanner(); //Destroy banner if level was loaded fast enough
     }
 
     void Update()
     {
+//#if UNITY_EDITOR
         HandleFire();
         Move();
+//#endif
+
+#if UNITY_ANDROID
+        HandleMultiTouch();
+#endif
+    }
+
+    private void HandleMultiTouch()
+    {
+        touchNum.text = Input.touchCount.ToString();
+        int i = 0;
+        foreach (Touch touch in Input.touches)
+        {
+            touchPos[i].text = "X: " + touch.position.x.ToString() + " Y: " + touch.position.y.ToString();
+            i++;
+        }
     }
 
     public void HandleFireButton()

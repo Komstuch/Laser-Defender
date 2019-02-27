@@ -1135,6 +1135,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8507563428178050029}
     m_Modifications:
+    - target: {fileID: 6370918264986515960, guid: d8c19f0e62db4b9449558afb1d2f8343,
+        type: 3}
+      propertyPath: m_Name
+      value: Boss Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370918264986515960, guid: d8c19f0e62db4b9449558afb1d2f8343,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963995222259197331, guid: d8c19f0e62db4b9449558afb1d2f8343,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1239,16 +1249,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370918264986515960, guid: d8c19f0e62db4b9449558afb1d2f8343,
-        type: 3}
-      propertyPath: m_Name
-      value: Boss Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370918264986515960, guid: d8c19f0e62db4b9449558afb1d2f8343,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c19f0e62db4b9449558afb1d2f8343, type: 3}
