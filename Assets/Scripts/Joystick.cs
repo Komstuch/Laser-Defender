@@ -10,17 +10,17 @@ public class Joystick : MonoBehaviour
     Color startButtonColor;
     EngineThruster engineThruster;
 
-    [SerializeField] Vector2 startPosition;
-    [SerializeField] Vector2 newPosition;
-    [SerializeField] Vector2 mousePosition;
-    [SerializeField] Vector2 direction;
-    [SerializeField] Vector2 normalizedDirection;
-    [SerializeField] float distance;
-    [SerializeField] float speedMagnitude;
-    public float radius, width, scale, moveSpeed, padding;
+    Vector2 startPosition;
+    Vector2 newPosition;
+    Vector2 mousePosition;
+    Vector2 direction;
+    Vector2 normalizedDirection;
+    float distance;
+    float speedMagnitude;
+    float radius, width, scale, moveSpeed, padding;
     float xMin, xMax, yMin, yMax;
     bool movementOn;
-    public float baseXLocation = 150f;
+    public float baseXLocation = 170f;
 
     void Start()
     {
@@ -55,9 +55,9 @@ public class Joystick : MonoBehaviour
         movementOn = true;
     }
 
-    public void OnDragJoystick()
+    public void OnDragJoystick(Touch touch)
     {
-        mousePosition = Input.mousePosition;
+        mousePosition = touch.position;
         direction = mousePosition - startPosition;
         normalizedDirection = direction.normalized;
         if (direction.magnitude > radius)
@@ -94,6 +94,18 @@ public class Joystick : MonoBehaviour
 
         playerController.transform.position = new Vector3(newXPos, newYPos, transform.position.z);
         engineThruster.transform.position = playerController.transform.position + new Vector3(0f, -0.4f, 0f);
+    }
+
+    public void HandleMultiTouch()
+    {
+        foreach (Touch touch in Input.touches)
+        {
+           float touchDistance = Vector2.Distance(startPosition, touch.position);
+           if (touchDistance <= (1.5*width)) // Chyba wyłączy się przy przeciągnięciu kursora za daleko - tak, poprawić
+            {
+                OnDragJoystick(touch);
+           }
+        }
     }
 
     private void SetMoveboundaries()

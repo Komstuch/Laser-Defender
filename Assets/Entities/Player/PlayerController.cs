@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
         analyticsManager = FindObjectOfType<AnalyticsManager>();
         engineThruster = FindObjectOfType<EngineThruster>();
         simpleAds = FindObjectOfType<SimpleAds>();
-        simpleAds.DestroyBanner(); //Destroy banner if level was loaded fast enough
+        simpleAds.DestroyBanner(); //Destroy banner if level was loaded fast enough or destroying in previous screen failed
     }
 
     void Update()
