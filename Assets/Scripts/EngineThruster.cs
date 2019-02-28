@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EngineThruster : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    GameObject player;
     [SerializeField] Vector3 currentPosition;
     [SerializeField] Vector3 previousPosition;
     ParticleSystem particleSystem;

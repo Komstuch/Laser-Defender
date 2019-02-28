@@ -57,14 +57,14 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-//#if UNITY_EDITOR
-        HandleFire();
-        Move();
-//#endif
-
-#if UNITY_ANDROID
-        HandleMultiTouch();
+#if UNITY_EDITOR
+       // HandleFire();
+       // Move();
 #endif
+
+//#if UNITY_ANDROID
+        HandleMultiTouch();
+//#endif
     }
 
     private void HandleMultiTouch()

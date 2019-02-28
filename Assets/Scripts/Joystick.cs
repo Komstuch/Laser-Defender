@@ -8,6 +8,8 @@ public class Joystick : MonoBehaviour
     PlayerController playerController;
     GameObject controller;
     Color startButtonColor;
+    EngineThruster engineThruster;
+
     [SerializeField] Vector2 startPosition;
     [SerializeField] Vector2 newPosition;
     [SerializeField] Vector2 mousePosition;
@@ -15,12 +17,15 @@ public class Joystick : MonoBehaviour
     [SerializeField] Vector2 normalizedDirection;
     [SerializeField] float distance;
     [SerializeField] float speedMagnitude;
-    float radius, width, scale, moveSpeed, padding;
+    public float radius, width, scale, moveSpeed, padding;
     float xMin, xMax, yMin, yMax;
     bool movementOn;
+    public float baseXLocation = 150f;
 
     void Start()
     {
+        engineThruster = FindObjectOfType<EngineThruster>();
+
         startPosition = transform.position;
         startButtonColor = GetComponent<Image>().color;
 
@@ -28,8 +33,8 @@ public class Joystick : MonoBehaviour
         controller = this.transform.parent.gameObject;
 
         width = controller.GetComponent<RectTransform>().rect.width;
-        scale = controller.GetComponent<RectTransform>().localScale.x;
-        radius = (width * scale / 2f) * 0.4f;
+        scale = startPosition.x/baseXLocation;
+        radius = (width*scale / 2f);
 
         movementOn = false;
         moveSpeed = playerController.moveSpeed;
@@ -88,6 +93,7 @@ public class Joystick : MonoBehaviour
         newYPos = Mathf.Clamp(newYPos, yMin, yMax);
 
         playerController.transform.position = new Vector3(newXPos, newYPos, transform.position.z);
+        engineThruster.transform.position = playerController.transform.position + new Vector3(0f, -0.4f, 0f);
     }
 
     private void SetMoveboundaries()
