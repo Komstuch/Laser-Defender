@@ -70,13 +70,13 @@ public class EnemySpawner : MonoBehaviour {
 
     public void DeactivateHealthBar()
     {
-        healthBar.transform.parent.gameObject.SetActive(false);
+        healthBar.transform.parent.gameObject.transform.parent.gameObject.SetActive(false);
         bossText.gameObject.SetActive(false);
     }
 
     private void ActivateHealthBar()
     {
-        healthBar.transform.parent.gameObject.SetActive(true);
+        healthBar.transform.parent.gameObject.transform.parent.gameObject.SetActive(true);
         bossText.gameObject.SetActive(true);
     }
 

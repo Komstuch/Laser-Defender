@@ -23,7 +23,6 @@ public class SimpleAds : MonoBehaviour
 
         MobileAds.Initialize(appId);
         this.RequestBanner();
-        player = FindObjectOfType<PlayerController>().gameObject;
     }
 
     private void RequestBanner()
@@ -56,7 +55,9 @@ public class SimpleAds : MonoBehaviour
 
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
-        if(SceneManager.GetActiveScene().name == "Game" & player)
+        player = FindObjectOfType<PlayerController>().gameObject;
+
+        if (SceneManager.GetActiveScene().name == "Game" & player)
         {
             DestroyBanner();
         }
