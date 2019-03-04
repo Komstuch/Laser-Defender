@@ -13,10 +13,10 @@ public class BackgroundScroller : MonoBehaviour
     {
         myMaterial = GetComponent<Renderer>().material;
         offset = new Vector2(0f, backgroundScrollSpeed);
-        Vector3 center = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+        Vector3 center = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 3f));
         float newX = center.x;
         float newY = center.y;
-        transform.position = new Vector2(newX, newY);
+        transform.position = new Vector3(newX, newY, 3f);
     }
 
     void Update()
