@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
     [SerializeField] AudioClip hitSound;
-    [SerializeField] [Range(0, 1)] float fireSoundVolume = 0.3f;
-    [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.15f;
-    [SerializeField] [Range(0, 1)] float hitSoundVolume = 0.1f;
+    float fireSoundVolume;
+    float deathSoundVolume;
+    float hitSoundVolume;
 
     [Header("Particla Effects")]
     [SerializeField] GameObject deathEffect;
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         SetMoveboundaries();
+        SetVFXVolume();
         healthDisplay = FindObjectOfType<HealthDisplay>();
         deathEffectDuration = deathEffect.GetComponent<ParticleSystem>().main.duration;
         pickupProcessor = GetComponent<ProcessPickup>();
@@ -217,5 +218,21 @@ public class PlayerController : MonoBehaviour {
     public void IncreaseFiringRate(float multiplier)
     {
         firingRate = firingRate - firingRate * multiplier;
+    }
+
+    private void SetVFXVolume()
+    {
+        if (PlayerPrefsManager.GetMasterVolume() == 0f)
+        {
+            fireSoundVolume = 0f;
+            deathSoundVolume = 0f;
+            hitSoundVolume = 0f;
+        }
+        else
+        {
+            fireSoundVolume = 0.3f;
+            deathSoundVolume = 0.15f;
+            hitSoundVolume = 0.1f;
+        }
     }
 }

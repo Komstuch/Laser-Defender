@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 833938288}
     - target: {fileID: 11456980, guid: 5f330b66d2a16ba46bb106f1d4f8a185, type: 3}
       propertyPath: firingRate
-      value: 0.3
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f330b66d2a16ba46bb106f1d4f8a185, type: 3}
@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 3988024495517478021, guid: acab5d06ba6d4344cb5041c7dd422ce4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3988024495517478021, guid: acab5d06ba6d4344cb5041c7dd422ce4,
         type: 3}

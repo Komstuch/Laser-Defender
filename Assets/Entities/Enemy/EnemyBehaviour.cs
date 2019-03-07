@@ -10,10 +10,13 @@ public class EnemyBehaviour : MonoBehaviour {
 	public int scoreValue = 150;
 	public AudioClip fireSound;
 	public AudioClip deathSound;
-	
-	private ScoreKeeper scoreKeeper;
+    float fireSoundVolume;
+    float deathSoundVolume;
+
+    private ScoreKeeper scoreKeeper;
 	
 	void Start(){
+        SetVFXVolume();
 		scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
 	}
 	
@@ -25,7 +28,7 @@ public class EnemyBehaviour : MonoBehaviour {
 			if(health <=0 ){
 				Destroy (gameObject);
 				scoreKeeper.AddScore(scoreValue);
-				AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, 0.3f);
+				AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
 			}		
 		}
 	}
@@ -41,6 +44,19 @@ public class EnemyBehaviour : MonoBehaviour {
 		Vector3 startPosition = transform.position + new Vector3(0f, -1f, 0f);
 		GameObject missile = Instantiate(projectile, startPosition, Quaternion.identity) as GameObject;
 		missile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -projectileSpeed);
-		AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, 0.3f);
+		AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, fireSoundVolume);
 	}
+    private void SetVFXVolume()
+    {
+        if (PlayerPrefsManager.GetMasterVolume() == 0f)
+        {
+            fireSoundVolume = 0f;
+            deathSoundVolume = 0f;
+        }
+        else
+        {
+            fireSoundVolume = 0.3f;
+            deathSoundVolume = 0.25f;
+        }
+    }
 }

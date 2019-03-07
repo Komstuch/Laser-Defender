@@ -4,6 +4,7 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
     [SerializeField] AudioClip fireSound;
+    float fireSoundVolume;
 
     private float averageTimeBetweenShots = 2f;
     private int numberOfProjectiles = 6;
@@ -15,6 +16,7 @@ public class Bomb : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().angularVelocity =  30f;
         GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity / 2f;
+        SetVFXVolume();
     }
     private void Update()
     {
@@ -35,7 +37,18 @@ public class Bomb : MonoBehaviour
             Vector2 currentVelocity = new Vector2(projectileSpeed * Mathf.Sin(radianAngle), projectileSpeed * Mathf.Cos(radianAngle));
             GameObject laser = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, -(currentAngle + offsets[i])));
             laser.GetComponent<Rigidbody2D>().velocity = currentVelocity;
-            AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, 0.3f);
+            AudioSource.PlayClipAtPoint(fireSound, Camera.main.transform.position, fireSoundVolume);
+        }
+    }
+    private void SetVFXVolume()
+    {
+        if (PlayerPrefsManager.GetMasterVolume() == 0f)
+        {
+            fireSoundVolume = 0f;
+        }
+        else
+        {
+            fireSoundVolume = 0.3f;
         }
     }
 }

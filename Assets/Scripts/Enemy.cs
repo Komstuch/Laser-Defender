@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour {
     [Header("Audio Effects")]
     [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip deathSound;
-    [SerializeField] [Range(0,2)] float fireSoundVolume = 2f;
-    [SerializeField] [Range(0,1)] float deathSoundVolume = 0.1f;
+    [SerializeField] [Range(0,2)] float fireSoundVolume;
+    [SerializeField] [Range(0,1)] float deathSoundVolume;
 
     AnalyticsManager analyticsManager;
     Boss boss;
@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour {
         enemySpawner = FindObjectOfType<EnemySpawner>();
         boss = GetComponent<Boss>();
         SetDifficultyParameters();
+        SetVFXVolume();
     }
 
     private void Update()
@@ -120,5 +121,19 @@ public class Enemy : MonoBehaviour {
         health = health + health * enemySpawner.GetHealthMultiplier();
         projectile.GetComponent<DamageDealer>().IncreaseDamage(enemySpawner.GetDamageMultiplier());
         scoreValue = scoreValue + (int)(scoreValue * enemySpawner.GetScoreMultiplier());
+    }
+
+    private void SetVFXVolume()
+    {
+        if (PlayerPrefsManager.GetMasterVolume() == 0f)
+        {
+            fireSoundVolume = 0f;
+            deathSoundVolume = 0f;
+        }
+        else
+        {
+            fireSoundVolume = 2f;
+            deathSoundVolume = 0.1f;
+        }
     }
 }
