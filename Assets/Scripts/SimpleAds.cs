@@ -18,15 +18,15 @@ public class SimpleAds : MonoBehaviour
 
     void Start()
     {
-        // banner App iD: ca-app-pub-1987428931362758/2456676520
+        // banner iD: ca-app-pub-1987428931362758/2456676520
         // Test ID: ca-app-pub-3940256099942544/6300978111
-        string appId = "ca-app-pub-1987428931362758/2456676520";
+        // My app  ID: ca-app-pub-1987428931362758~1123413553
+        string appId = "ca-app-pub-1987428931362758~1123413553";
 
         MobileAds.Initialize(appId);
         RequestBanner();
         LoadBanner();
     }
-
     private void RequestBanner()
     {
         string adUnitId = "ca-app-pub-1987428931362758/2456676520";
