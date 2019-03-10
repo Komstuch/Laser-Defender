@@ -10,19 +10,21 @@ public class SimpleAds : MonoBehaviour
 {
     private BannerView bannerView;
     private AdRequest request;
-    private GameObject player;
 
-    private void Awake()
-    {
-        SetUpSingleton();
-    }
+    //private void Awake()
+    //{
+    //    SetUpSingleton();
+    //}
 
     void Start()
     {
+        // banner App iD: ca-app-pub-1987428931362758/2456676520
+        // Test ID: ca-app-pub-3940256099942544/6300978111
         string appId = "ca-app-pub-3940256099942544/6300978111";
 
         MobileAds.Initialize(appId);
-        this.RequestBanner();
+        RequestBanner();
+        LoadBanner();
     }
 
     private void RequestBanner()
@@ -55,16 +57,6 @@ public class SimpleAds : MonoBehaviour
 
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
-        player = FindObjectOfType<PlayerController>().gameObject;
-
-        if (SceneManager.GetActiveScene().name == "Game" & player)
-        {
-            DestroyBanner();
-        }
-        if (SceneManager.GetActiveScene().name == "Start Menu")
-        {
-            DestroyBanner();
-        }
         MonoBehaviour.print("HandleAdLoaded event received");
     }
 

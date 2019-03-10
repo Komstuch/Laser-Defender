@@ -52,8 +52,6 @@ public class PlayerController : MonoBehaviour {
         pickupProcessor = GetComponent<ProcessPickup>();
         analyticsManager = FindObjectOfType<AnalyticsManager>();
         engineThruster = FindObjectOfType<EngineThruster>();
-        simpleAds = FindObjectOfType<SimpleAds>();
-        simpleAds.DestroyBanner(); //Destroy banner if level was loaded fast enough or destroying in previous screen failed
     }
 
     void Update()
@@ -165,7 +163,6 @@ public class PlayerController : MonoBehaviour {
 
     private void Die() {
         analyticsManager.PostResults();
-        simpleAds.LoadBanner();
         LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         man.LoadGameOver();
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
