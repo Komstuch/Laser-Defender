@@ -20,7 +20,7 @@ public class SimpleAds : MonoBehaviour
     {
         // banner App iD: ca-app-pub-1987428931362758/2456676520
         // Test ID: ca-app-pub-3940256099942544/6300978111
-        string appId = "ca-app-pub-3940256099942544/6300978111";
+        string appId = "ca-app-pub-1987428931362758/2456676520";
 
         MobileAds.Initialize(appId);
         RequestBanner();
@@ -29,7 +29,7 @@ public class SimpleAds : MonoBehaviour
 
     private void RequestBanner()
     {
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        string adUnitId = "ca-app-pub-1987428931362758/2456676520";
 
         // Create a 320x50 banner at the top of the screen.
         bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
