@@ -23,7 +23,7 @@ public class NameManager : MonoBehaviour
         startButton.SetActive(false);
         nameText.SetActive(false);
 
-        playerName = PlayerPrefs.GetString("PlayerName");
+        playerName = PlayerPrefsManager.GetPlayerName();
 
         if (playerName == "")
         {
@@ -43,6 +43,6 @@ public class NameManager : MonoBehaviour
     public void SetPlayerName()
     {
         playerName = nameInput.text.ToString();
-        PlayerPrefs.SetString("PlayerName", playerName);
+        PlayerPrefsManager.SetPlayerName(playerName);
     }
 }

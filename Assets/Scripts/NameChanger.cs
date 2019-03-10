@@ -28,7 +28,7 @@ public class NameChanger : MonoBehaviour
     public void ConfirmChange()
     {
         newName = inputMenu.GetComponent<InputField>().text.ToString();
-        PlayerPrefs.SetString("PlayerName", newName);
+        PlayerPrefsManager.SetPlayerName(newName);
         nameDisplay.GetComponent<DisplayName>().GetName();
         changeNameButton.SetActive(true);
         quitButton.SetActive(true);

@@ -15,7 +15,7 @@ public class DisplayName : MonoBehaviour
 
     public void GetName()
     {
-        playerName = PlayerPrefs.GetString("PlayerName");
+        playerName = PlayerPrefsManager.GetPlayerName();
         displayText = GetComponent<Text>();
         displayText.text = playerName;
     }

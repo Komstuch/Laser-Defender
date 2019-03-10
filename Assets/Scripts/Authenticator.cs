@@ -50,7 +50,7 @@ public class Authenticator : MonoBehaviour
 
     public void GetRegistrationData()
     {
-        playerName = PlayerPrefs.GetString("PlayerName");
+        playerName = PlayerPrefsManager.GetPlayerName();
         if (playerName == "")
         {
             Debug.Log("Error while reading player name, proceeding with deafault value");
