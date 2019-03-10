@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPrefsManager : MonoBehaviour
 {
     const string MASTER_VOLUME_KEY = "master_volume";
+    const string NAME_KEY = "player_name";
 
     public static void SetMasterVolume(float volume)
     {
@@ -26,5 +27,15 @@ public class PlayerPrefsManager : MonoBehaviour
     public static float GetMasterVolume()
     {
         return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
+    }
+
+    public static void SetPlayerName(string name)
+    {
+        PlayerPrefs.SetString(NAME_KEY, name);
+    }
+
+    public static string GetPlayerName()
+    {
+        return PlayerPrefs.GetString(NAME_KEY);
     }
 }

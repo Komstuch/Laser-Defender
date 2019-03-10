@@ -16,9 +16,6 @@ public class NameManager : MonoBehaviour
 
     private void Start()
     {
-        //For Debugging Purposes
-        PlayerPrefs.DeleteAll();
-
         nameInput = nameInputField.GetComponent<InputField>();
         levelManager = FindObjectOfType<LevelManager>();
 
