@@ -57,6 +57,10 @@ public class SimpleAds : MonoBehaviour
 
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
+        if(SceneManager.GetActiveScene().name != "Win Screen")
+        {
+            DestroyBanner();
+        }
         MonoBehaviour.print("HandleAdLoaded event received");
     }
 
